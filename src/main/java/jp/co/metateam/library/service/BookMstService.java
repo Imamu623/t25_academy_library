@@ -86,12 +86,12 @@ public class BookMstService {
         if (StringUtils.isEmpty(bookIsbn)) {
             errIsbnList.add("ISBNは必須です");
             model.addAttribute("errIsbn",errIsbnList);
-            return !errIsbnList.isEmpty()|| !errIsbnList.isEmpty();
+            return !errIsbnList.isEmpty()|| !errTitleList.isEmpty();
         }
         //ISBNの桁数
         if (bookIsbn.length() != 13 ){
             errIsbnList.add("ISBNは13桁で入力してください");
-            model.addAttribute("errTitle",errIsbnList);
+            model.addAttribute("errIsbn",errIsbnList);
         }
         //ISBNの半角数字
         if (!bookIsbn.matches("^[0-9]+$")) {
