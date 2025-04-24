@@ -14,12 +14,9 @@ import lombok.Setter;
 @Setter
 public class BookMstDto {
     
-    private Long id; 
-    
+    private long id;
+    private String title; 
     private String isbn;
-
-    private String title;
-    
     private Timestamp deletedAt;
 
     private BookMst bookMst;
