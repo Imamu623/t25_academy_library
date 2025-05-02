@@ -14,12 +14,12 @@
             <div th:replace="~{common :: header}"></div>
             <div class="inner_contens">
                 <div class="page_title">書籍一覧</div>
-                <div class="btn_block">
-                    <div style = "text-align: right;">
-                    <form th:action="@{/book/add}" method="get"style="display: inline-block;">
-                        <input type="submit" value="+書籍登録" style="padding: 12px 24px; font-size: 16px; background-color: #87f4b4fa;border: 1px solid #87f4b4fa;">
-                    </form>
-                    </div>
+                <div style="text-align: right;">
+                    <button class="button-link"
+                        onclick="window.location.href='http://localhost:8080/mt_library/book/add'"> <img
+                            th:src="@{/images/icons/add.png}" alt="アイコン"
+                            style="height: 15px; vertical-align: middle; margin-right: 5px;"><span
+                            style="font-size: 10px;"></span>書籍登録</button>
                 </div>
             </div>
             <div class="book_list">

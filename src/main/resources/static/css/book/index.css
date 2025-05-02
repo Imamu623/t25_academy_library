@@ -63,3 +63,15 @@
   color: #0000EE;
 }
 
+.button-link {
+  display: inline-block;
+  width: 100px;
+  height: 45px;
+  font-size: 15px;
+  background-color: #9CF2D3;
+  color: #545454;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+}
