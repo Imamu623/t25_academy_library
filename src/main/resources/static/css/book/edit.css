@@ -1,0 +1,56 @@
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+#book_edit_form .form_input {
+  display: inline-block;
+  width: 300%;
+  height: 30px;
+  border: 2px solid #D9D9D9;
+  padding: 2px 10px;
+  font-size: 20px;
+}
+
+#book_edit_form .btn_block {
+    display: flex;
+    justify-content: center;
+}
+
+#submit_btn {
+    width: 120px;
+    height: 45px;
+    font-size: 20px;
+    color: #545454;
+    border-radius: 0.5rem;
+    border: none;
+}
+.link {                /*一覧へ戻る*/
+  font-size: 16px;     /*文字サイズの変更*/
+  text-align: right;   /*文字を右に寄せる*/
+  position: absolute;  /*画面で絶対位置を設定*/
+  top: 170px;           /*画面の上から10pxの位置に配置*/
+  right: 50px;         /*画面の右から10pxの位置に配置*/
+}
+.required_note {
+  font-size: 14px;        /* 文字の大きさ */
+  color: #FF0000;         /* 文字色：赤 */
+  margin-bottom: 10px;    /* 下の余白 */
+}
+
+.required_note .asterisk {
+  font-weight: bold;      /* * を太字に */
+  color: #FF0000;         /* * の色：赤 */
+  margin-left: 10px;
+}
+.form_label {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.form_label p {
+  margin-bottom: 5px; /* ラベルと入力欄の間に少しスペース */
+  font-size: 16px;
+}

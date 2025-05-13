@@ -8,6 +8,17 @@
 </head>
 
 <body>
+    <div th:if="${errorMessage}" class="modal-overlay" id="popupModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closePopup()">&times;</span>
+            <p th:text="${errorMessage}"></p>
+        </div>
+        <script>
+            function closePopup() {
+                document.getElementById('popupModal').style.display = 'none';
+            }
+        </script>
+    </div>
     <div class="contents">
         <div th:replace="~{common :: main_sidebar}"></div>
         <div class="main_contents">
@@ -32,7 +43,14 @@
                     </thead>
                     <tbody>
                         <tr th:each="book : ${bookMstList}">
-                            <td th:text="${book.title}">書籍名</td>
+
+                            <td>
+                                <a th:href="@{/book/edit(id=${book.id})}">
+                                    <img th:src="@{/images/icons/edit.png}" alt="アイコン">
+                                </a>
+                                <span th:text="${book.title}"> </span>
+
+                            </td>
                             <td th:text="${book.isbn}">ISBN</td>
                         </tr>
                     </tbody>

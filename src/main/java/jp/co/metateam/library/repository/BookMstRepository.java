@@ -2,6 +2,8 @@ package jp.co.metateam.library.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 
 import jp.co.metateam.library.model.BookMst;
 import java.util.List;
