@@ -95,7 +95,7 @@ public class BookController {
             model.addAttribute("bookMstDto", book);
             return "book/edit";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "対象の書籍が削除されています。");
+            redirectAttributes.addFlashAttribute("errorMessage", "想定外のエラーが発生しました");
             return "redirect:/book/index";
         }
     }

@@ -34,17 +34,20 @@ public class BookMstService {
     }
 
     public BookMstDto findBookId(Long id) {
-        BookMst book = bookMstRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("書籍が見つかりません"));
-
-        // DTOに変換して返す（必要なら）
-        BookMstDto dto = new BookMstDto();
-        dto.setTitle(book.getTitle());
-        dto.setIsbn(book.getIsbn());
-        dto.setId(book.getId());
-
-        return dto;
+    Optional<BookMst> optionalBook = bookMstRepository.findById(id);
+    if (!optionalBook.isPresent()) {
+        return null;
     }
+
+    BookMst book = optionalBook.get();
+    BookMstDto dto = new BookMstDto();
+    dto.setTitle(book.getTitle());
+    dto.setIsbn(book.getIsbn());
+    dto.setId(book.getId());
+
+    return dto;
+}
+
     // BookMstService.java
 
 public Optional<BookMst> findById(Long id) {
