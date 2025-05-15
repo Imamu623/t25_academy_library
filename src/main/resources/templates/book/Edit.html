@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{common :: meta_header('書籍編集',~{::link},~{::script})}">
+    <title th:text="${title}+' | MTLibrary'"></title>
+    <link rel="stylesheet" th:href="@{/css/book/edit.css}" />
+    <script type="text/javascript" th:src="@{/js/book/add.js}"></script>
+</head>
+
+<body>
+    <div class="contents">
+        <div th:replace="~{common :: main_sidebar}"></div>
+        <div class="main_contents">
+            <div th:replace="~{common :: header}"></div>
+            <div class="inner_contens">
+                <div class="page_title">書籍編集</div>
+                <div class="page_contents">
+                    <p class=" required_note"><span class="asterisk">*</span>は必須項目です</p>
+                    <form input type="submit" id="book_edit_form" th:object="${bookMstDto}" th:action="@{/book/edit}"method="post">
+                        <input type="hidden" th:field="*{id}" />
+                        <div class="error_msg" th:if="${errUpdate}">
+                            <div th:each="msg : ${errUpdate}">
+                                <p th:text="${msg}" style="color: red;"></p>
+                            </div>
+                            <div class="popup-box">
+                                <p th:text="${errorMessage}"></p>
+                            </div>
+                        </div>
+                        <div class="mb30 flexarea">
+                            <span>
+                                <a th:href="@{/book/index}" class="link">← 一覧へ戻る</a>
+                            </span>
+                        </div>
+                        <table>
+                            <caption></caption>
+                            <tbody>
+                                <tr>
+                                    <th scope="col" class="form_label">
+                                        <p>書籍名<span class="asterisk">*</span></p>
+                                        <input type="text" name="book_name" th:field="*{title}" class="form_input" />
+                                        <div class="error_msg" th:if="${errTitle}">
+                                            <div th:each="msg : ${errTitle}">
+                                                <p th:text="${msg}" style="color: red"></p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th scope="col" class="form_label">
+                                        <p>ISBN<span class="asterisk">*</span></p>
+                                        <input type="text" name="isbn" th:field="*{isbn}" class="form_input" />
+                                        <div class="error_msg" th:if="${errIsbn}">
+                                            <div th:each="msg : ${errIsbn}">
+                                                <p th:text="${msg}" style="color : red"></p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn_block">
+                            <input type="submit" id="submit" value="変更">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div th:replace="~{common :: footer}"></div>
+</body>
+<html>
